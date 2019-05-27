@@ -17,10 +17,13 @@ public class Datum {
 	 * Constructor
 	 */
 	public Datum(int dag, int maand, int jaar) {
-		this.dag = dag;
-		this.maand = maand;
-		this.jaar = jaar;
+		if (this.DatumBestaat(dag, maand, jaar)) {
+			this.dag = dag;
+			this.maand = maand;
+			this.jaar = jaar;
+		}
 	}
+
 
 	public boolean bestaatDatum(int dag, int maand, int jaar){
 		// TODO
