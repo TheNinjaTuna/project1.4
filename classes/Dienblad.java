@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class Dienblad {
     private ArrayList<Artikel> artikelen;
+    private Persoon klant;
 
     /**
      * Constructor
@@ -12,13 +13,17 @@ public class Dienblad {
         // method body omitted
     }
 
+    public Dienblad(Persoon klantinvoer) {
+        this.klant = klantinvoer;
+    }
+
     /**
      * Methode om artikel aan dienblad toe te voegen
      *
      * @param artikel
      */
     public void voegToe(Artikel artikel) {
-        // method body omitted
+        artikelen.add(artikel)
     }
 
     /**
@@ -27,7 +32,9 @@ public class Dienblad {
      * @return Het aantal artikelen
      */
     public int getAantalArtikelen() {
-        // method body omitted
+        int aantal = 0;
+        for (int x = 0; x <= artikelen.length; x++ ){aantal += 1;}
+        return aantal;
     }
 
     /**
@@ -37,7 +44,20 @@ public class Dienblad {
      * @return De totaalprijs
      */
     public double getTotaalPrijs() {
-        // method body omitted
+        double tot = null;
+        for (int x  = 0 : artikelen)
+        {
+         tot += artikelen.get(x).getPrijs;
+        }
+        return tot;
+    }
+
+    public Persoon getKlant() {
+        return klant;
+    }
+
+    public void setKlant(Persoon klant) {
+        this.klant = klant;
     }
 }
 
