@@ -43,7 +43,7 @@ public class Dienblad {
      *
      * @return De totaalprijs
      */
-    public double getTotaalPrijs() {
+    public double getAantalArtikelen() {
         double tot = null;
         for (int x  = 0 : artikelen)
         {

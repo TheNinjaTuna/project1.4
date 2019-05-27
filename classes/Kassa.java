@@ -2,12 +2,17 @@ import java.util.Iterator;
 
 public class Kassa {
 
+    private int aantalverkocht;
+    private double totaleopbrengst;
+
     /**
      * Constructor
      */
     public Kassa(KassaRij kassarij) {
         // method body omitted
     }
+
+
 
     /**
      * Vraag het aantal artikelen en de totaalprijs op.
@@ -18,7 +23,10 @@ public class Kassa {
      * @param klant die moet afrekenen
      */
     public void rekenAf(Dienblad klant) {
-        // method body omitted
+        aantalverkocht += klant.getAantalArtikelen;
+        totaleopbrengst += klant.getTotaleOpbrengst;
+
+
     }
 
     /**
@@ -28,7 +36,7 @@ public class Kassa {
      * @return aantal artikelen
      */
     public int aantalArtikelen() {
-        // method body omitted
+        return aantalverkocht;
     }
 
     /**
@@ -39,7 +47,7 @@ public class Kassa {
      * @return hoeveelheid geld in de kassa
      */
     public double hoeveelheidGeldInKassa() {
-        // method body omitted
+        return totaleopbrengst;
     }
 
     /**
@@ -47,6 +55,6 @@ public class Kassa {
      * de totale hoeveelheid geld in de kassa.
      */
     public void resetKassa() {
-        // method body omitted
+        totaleopbrengst = 0;
     }
 }
