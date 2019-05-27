@@ -26,8 +26,15 @@ public class Datum {
 
 
 	public boolean bestaatDatum(int dag, int maand, int jaar){
-		// TODO
-		return false;
+		if (dag <1 || >31|| (maand <1 || >12) ||(jaar <1900 || >2100)){
+			return false;
+		}
+		elseif ((maand != 1 && maand != 3 && maand != 5 && maand != 7 && maand != 8 && maand != 10 && maand != 12)  &&  (dag > 30 ) && (!jaar % 4 == 0))
+		{return false;}
+		else
+		{
+			return true;
+		}
 	}
 	
 	/**
@@ -64,18 +71,4 @@ public class Datum {
 	public void setJaar(int jaar) {
 		this.jaar = jaar;
 	}
-
-	private boolean	bestaatDatum() {
-		if (dag <1 || >31|| (maand <1 || >12) ||(jaar <1900 || >2100)){
-			return false;
-		}
-		elseif ((maand != 1 && maand != 3 && maand != 5 && maand != 7 && maand != 8 && maand != 10 && maand != 12)  &&  (dag > 30 ) && (!jaar % 4 == 0))
-	{return false;}
-		else
-		{
-			return true;
-		}
-	}
-
-
 }
