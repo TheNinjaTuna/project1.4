@@ -33,10 +33,7 @@ public class KassaRij {
         if (this.klanten.size() >0) {
             eersteKlant = this.klanten.removeFirst();
         } return eersteKlant;
-
-
     }
-
     /**
      * Methode kijkt of er personen in de rij staan.
      *
