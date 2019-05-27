@@ -1,0 +1,2 @@
+Bij het declareren van een variabele maak je er als het ware ruimte voor. Hierbij krijgt de variabele nog geen invulling en heeft het geen waarde "null".
+Bij het initialiseren krijgt de variabele een waarde toegewezen op de plek waar er ruimte voor is.
