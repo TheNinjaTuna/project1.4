@@ -2,6 +2,7 @@ public class Kantine {
 
     private Kassa kassa;
     private KassaRij kassarij;
+    private int id;
 
     /**
      * Constructor
@@ -9,6 +10,7 @@ public class Kantine {
     public Kantine() {
         kassarij = new KassaRij();
         kassa = new Kassa(kassarij);
+        id = 0;
     }
 
     /**
@@ -18,17 +20,16 @@ public class Kantine {
      * Persoon zich aan bij de rij voor de kassa.
      */
     public void loopPakSluitAan() {
-        // method body omitted
     }
 
     /**
      * Deze methode handelt de rij voor de kassa af.
      */
     public void verwerkRijVoorKassa() {
-        while() {
-            // omitted
-        }
+
     }
+
+
 
     /**
      * Deze methode telt het geld uit de kassa
@@ -37,6 +38,7 @@ public class Kantine {
      */
     public double hoeveelheidGeldInKassa() {
        // method body omitted
+
     }
 
     /**
