@@ -37,6 +37,7 @@ public class KassaRij {
 
         }
         return eersteKlant;
+
     }
     /**
      * Methode kijkt of er personen in de rij staan.

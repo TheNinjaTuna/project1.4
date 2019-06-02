@@ -18,7 +18,12 @@ public class Kantine {
      * Persoon zich aan bij de rij voor de kassa.
      */
     public void loopPakSluitAan() {
-        // method body omitted
+        Persoon person = new Persoon();
+        Dienblad dienblad = new Dienblad();
+
+
+
+
     }
 
     /**

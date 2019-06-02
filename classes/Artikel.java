@@ -7,7 +7,7 @@ class Artikel
 
     }
 
-    public Artikel(String naam, float prijs) {
+    public Artikel(String naam, double prijs) {
 
     }
 
@@ -32,7 +32,7 @@ class Artikel
     public double getPrijs() {
         return prijs;
     }
-    public void setPrijs(float prijs) {
+    public void setPrijs(double prijs) {
         this.prijs = prijs;
     }
 
