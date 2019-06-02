@@ -72,7 +72,8 @@ class Persoon {
     //getDatumAsString is voor week 1 nog niet relevant!
 
     public String getGeboortedatum() {
-        return geboortedatum.getDatumAsString;
+        //return geboortedatum.getDatumAsString;
+        return "nee";
     }
 
     public String getGeslacht() {

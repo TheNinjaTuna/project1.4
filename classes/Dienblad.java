@@ -10,7 +10,7 @@ public class Dienblad {
      * Constructor
      */
     public Dienblad() {
-        // method body omitted
+        artikelen = new ArrayList<Artikel>();
     }
 
     public Dienblad(Persoon klantinvoer) {

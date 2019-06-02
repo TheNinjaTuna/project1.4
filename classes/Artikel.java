@@ -4,7 +4,7 @@ class Artikel
     private double prijs;
 
     public Artikel() {
-
+       naam = "nonameyet";
     }
 
     public Artikel(String naam, double prijs) {

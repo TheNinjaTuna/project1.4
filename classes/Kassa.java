@@ -56,5 +56,6 @@ public class Kassa {
      */
     public void resetKassa() {
         totaleopbrengst = 0;
+        aantalverkocht = 0;
     }
 }

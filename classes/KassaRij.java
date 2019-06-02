@@ -8,7 +8,7 @@ public class KassaRij {
      * Constructor
      */
     public KassaRij() {
-        // method body omitted
+        klanten = new ArrayList<Dienblad>();
     }
 
     /**
