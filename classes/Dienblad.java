@@ -23,7 +23,7 @@ public class Dienblad {
      * @param artikel
      */
     public void voegToe(Artikel artikel) {
-        artikelen.add(artikel)
+        artikelen.add(artikel);
     }
 
     /**
@@ -33,21 +33,21 @@ public class Dienblad {
      */
     public int getAantalArtikelen() {
         int aantal = 0;
-        for (int x = 0; x <= artikelen.length; x++ ){aantal += 1;}
+        for (int x = 0; x <= artikelen.size(); x++ ){aantal += 1;}
         return aantal;
     }
 
-    /**
-     * Methode om de totaalprijs van de artikelen
-     * op dienblad uit te rekenen
+    /**om de totaalprijs van de artikelen
+     * op dienblad
+     *      * Methode uit te rekenen
      *
      * @return De totaalprijs
      */
-    public double getAantalArtikelen() {
-        double tot = null;
-        for (int x  = 0 : artikelen)
+    public double getTotalePrijs() {
+        double tot = 0;
+        for (int x = 0; x < artikelen.size(); x++)
         {
-         tot += artikelen.get(x).getPrijs;
+         tot += artikelen.get(x).getPrijs();
         }
         return tot;
     }

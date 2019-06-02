@@ -1,7 +1,7 @@
 class Artikel
 {
     private String naam;
-    private float prijs;
+    private double prijs;
 
     public Artikel() {
 
@@ -29,7 +29,7 @@ class Artikel
     }
 
     /// Getters en setters van prijs
-    public float getPrijs() {
+    public double getPrijs() {
         return prijs;
     }
     public void setPrijs(float prijs) {

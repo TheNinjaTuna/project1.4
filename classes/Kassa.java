@@ -23,8 +23,8 @@ public class Kassa {
      * @param klant die moet afrekenen
      */
     public void rekenAf(Dienblad klant) {
-        aantalverkocht += klant.getAantalArtikelen;
-        totaleopbrengst += klant.getTotaleOpbrengst;
+        aantalverkocht += klant.getAantalArtikelen();
+        totaleopbrengst += klant.getTotalePrijs();
 
 
     }
