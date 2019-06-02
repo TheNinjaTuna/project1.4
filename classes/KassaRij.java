@@ -29,10 +29,14 @@ public class KassaRij {
      * @return Eerste klant in de rij of null
      */
     public Dienblad eerstePersoonInRij() {
-        Dienblad eersteKlant - null;
+        Dienblad eersteKlant = null;
         if (this.klanten.size() >0) {
-            eersteKlant = this.klanten.removeFirst();
-        } return eersteKlant;
+            eersteKlant = this.klanten.get(0);
+            this.klanten.remove(0);
+            return eersteKlant;
+
+        }
+        return eersteKlant;
     }
     /**
      * Methode kijkt of er personen in de rij staan.
