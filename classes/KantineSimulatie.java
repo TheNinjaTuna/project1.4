@@ -33,8 +33,8 @@ public class KantineSimulatie {
             kantine.verwerkRijVoorKassa();
 
             System.out.println("Vandaag is het: Dag " + i);
-            System.out.println("Bedrag in Kassa: " + kantine.hoeveelheidGeldInKassa() + " Euro.");
-            System.out.println("Aantal verkochte artikelen: " + kantine.aantalArtikelen() + ".");
+            System.out.println("Bedrag in Kassa: " + kantine.getKassa().hoeveelheidGeldInKassa() + " Euro.");
+            System.out.println("Aantal verkochte artikelen: " + kantine.getKassa().aantalArtikelen() + ".");
 
             kantine.resetKassa();
         }

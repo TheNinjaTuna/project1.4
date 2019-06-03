@@ -9,7 +9,8 @@ public class Kassa {
      * Constructor
      */
     public Kassa(KassaRij kassarij) {
-        // method body omitted
+        aantalverkocht = 0;
+        totaleopbrengst = 0;
     }
 
 

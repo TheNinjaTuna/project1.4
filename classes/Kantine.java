@@ -40,22 +40,9 @@ public class Kantine {
         }
     }
 
-    /**
-     * Deze methode telt het geld uit de kassa
-     *
-     * @return hoeveelheid geld in kassa
-     */
-    public double hoeveelheidGeldInKassa() {
-       return kassa.hoeveelheidGeldInKassa();
-    }
 
-    /**
-     * Deze methode geeft het aantal gepasseerde artikelen.
-     *
-     * @return het aantal gepasseerde artikelen
-     */
-    public int aantalArtikelen() {
-        return kassa.aantalArtikelen();
+    public Kassa getKassa() {
+        return kassa;
     }
 
     /**
