@@ -14,7 +14,7 @@ public class KassaRij {
     /**
      * Persoon sluit achter in de rij aan
      *
-     * 
+     *
      * @param klant
      */
     public void sluitAchteraan(Dienblad klant) {
