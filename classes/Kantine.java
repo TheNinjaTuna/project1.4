@@ -2,6 +2,7 @@ public class Kantine {
 
     private Kassa kassa;
     private KassaRij kassarij;
+    private KantineAanbod kantineaanbod;
 
     /**
      * Constructor
@@ -52,5 +53,13 @@ public class Kantine {
     public void resetKassa() {
        kassa.resetKassa();
        System.out.println("De kassa is gereset!");
+    }
+
+    public KantineAanbod getKantineaanbod() {
+        return kantineaanbod;
+    }
+
+    public void setKantineaanbod(KantineAanbod kantineaanbod) {
+        this.kantineaanbod = kantineaanbod;
     }
 }

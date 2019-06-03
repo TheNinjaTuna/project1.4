@@ -8,6 +8,16 @@ Week 2 Opdracht 1 A
 Omdat een 'while' loop alleen maar hoeft te checken of de condition 'kassa.erIsEenRij' true is.
 Als deze dat niet is voert hij ook niks uit. (Behalve de eerste check om te kijken of de condition true is)
 
-Week 2 Opdracht 4 a
+Week 2 Opdracht 4 A
 
-Kantine heeft een aantal methodes die niks anders doet dan dezelfde methode in de kassa object aanroepen. Dit is dus een dubbelle methode
+Kantine heeft een aantal methodes die niks anders doet dan dezelfde methode in de kassa object aanroepen.
+Dit is dus een dubbelle methode
+
+Week 2 Opdracht 5 A
+
+Ten eerste is private is gewoon de standaard, daarnaast is het ook om te weten dat je deze code nergens anders buiten de class moet gebruiken. En ook omdat deze private zijn kun je deze ergens anders een method met dezelfde naam opnieuw gebruiken.
+// eventueel nog extra
+
+Week 2 Opdracht 5 B
+
+Ze staan beide verschillende dingen toe.
