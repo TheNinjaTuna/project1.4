@@ -1,5 +1,5 @@
-//
-//import java.util.*;
+
+import java.util.*;
 
 public class KantineSimulatie2 {
 
@@ -110,14 +110,21 @@ public class KantineSimulatie2 {
         for(int i = 0; i < dagen; i++) {
 
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = ... ;
+            int aantalpersonen = 20 ;
+
 
             // laat de personen maar komen...
             for(int j = 0; j < aantalpersonen; j++) {
 
-                // maak persoon en dienblad aan, koppel ze
-                // en bedenk hoeveel artikelen worden gepakt
-                int aantalartikelen = ... ;
+                Persoon person = new Persoon();
+                Dienblad dienblad = new Dienblad();
+
+                dienblad.setKlant(person);
+
+                kassarij.sluitAchteraan(dienblad);
+
+                int aantalartikelen = 2 ;
+
 
                 // genereer de "artikelnummers", dit zijn indexen
                 // van de artikelnamen
@@ -130,6 +137,8 @@ public class KantineSimulatie2 {
 
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
+
+
 
             }
 

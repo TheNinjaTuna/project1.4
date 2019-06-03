@@ -21,3 +21,19 @@ Ten eerste is private is gewoon de standaard, daarnaast is het ook om te weten d
 Week 2 Opdracht 5 B
 
 Ze staan beide verschillende dingen toe.
+
+Week 2 Opdracht 6 A
+
+public KantineSimulatie() {
+41 kantine = new Kantine(); //hier wordt een nieuwe kantine object aangemaakt
+42 random = new Random(); // hier wordt een nieuw random object aangemaakt
+43 int[] hoeveelheden = getRandomArray( // hier wordt een integer array aangemaakt en word gevult met willekeurige waarden gevult. Ook zijn er grenzen gezet met waarmee het gevult kan worden.
+44 AANTAL_ARTIKELEN,
+45 MIN_ARTIKELEN_PER_SOORT,
+46 MAX_ARTIKELEN_PER_SOORT);
+47 kantineaanbod = new KantineAanbod( //Hier wordt een kantineaanbod object gemaakt en gevuld met de voor genitialiseerde waarden.
+48 artikelnamen, artikelprijzen, hoeveelheden);
+49
+50 kantine.setKantineAanbod(kantineaanbod) ;} //Hier word het kantineaanbod object van Kantine gekoppeld aan de net gemaakte kantineaanbod;
+
+Weel 2 Opdracht 6
