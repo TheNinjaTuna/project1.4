@@ -21,6 +21,17 @@ Ten eerste is private is gewoon de standaard, daarnaast is het ook om te weten d
 Week 2 Opdracht 5 B
 
 Ze staan beide verschillende dingen toe.
+Een HashSet slaat waarden op, en staat geen duplicates toe.
+Buiten de context van dit project zou je hier de dagen van een week in kunnen zetten.
+Deze slaat hij dan op, alleen niet op volgorde
+
+Een HashMap heeft een key die verbonden is aan een waarde. Ook deze heeft geen volgorde.
+Een HashMap kan geen duplicate keys hebben, maar wel duplicate waardes.
+Je kunt deze gebruiken om twee waarden te koppelen.
+
+Waar het op neer komt op het gebied van verschillen is dat de HashMap een key en een waarde opslaat, waarbij de waarde meerdere keren voor kan komen.
+Terwijl een HashSet een enkele waarde opslaat, die maar 1 keer voor mag komen.
+Een HashMap is dus eigenlijk Key+Value terwijl een HashSet alleen Key is.
 
 Week 2 Opdracht 6 A
 
@@ -36,4 +47,7 @@ public KantineSimulatie() {
 49
 50 kantine.setKantineAanbod(kantineaanbod) ;} //Hier word het kantineaanbod object van Kantine gekoppeld aan de net gemaakte kantineaanbod;
 
-Weel 2 Opdracht 6
+Week 2 Opdracht 6
+random.nextInt pakt een nummer van 0 (inclusief) en een aangegeven getal (exclusief)
+Wat dit wil zeggen is dat het een random getal vanaf 0 tot het aangegeven getal is, dus niet tot en MET het aangegeven getal.
+De +1 zorgt ervoor dat wanneer je bijvoorbeeld het getal 50 aangeeft, hij normaal 49 zou pakken. Maar door de +1 pakt hij hier gewoon 50 (49+1).
