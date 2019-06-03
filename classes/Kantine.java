@@ -41,6 +41,9 @@ public class Kantine {
         }
     }
 
+    public KassaRij getKassarij() {
+        return kassarij;
+    }
 
     public Kassa getKassa() {
         return kassa;
