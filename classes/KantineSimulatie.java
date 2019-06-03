@@ -1,16 +1,17 @@
-
+//2
 import java.util.*;
 
-public class KantineSimulatie2 {
+public class KantineSimulatie {
 
     // kantine
-    private Kantine kantine;
+    private static Kantine kantine;
+
 
     // kantineaanbod
     private KantineAanbod kantineaanbod;
 
     // random generator
-    private Random random;
+    private static Random random;
 
     // aantal artikelen
     private static final int AANTAL_ARTIKELEN = 4;
@@ -48,8 +49,10 @@ public class KantineSimulatie2 {
         kantineaanbod = new KantineAanbod(
             artikelnamen, artikelprijzen, hoeveelheden);
 
-        kantine.setKantineAanbod(kantineaanbod);
+        kantine.setKantineaanbod(kantineaanbod);
     }
+
+
 
     /**
      * Methode om een array van random getallen liggend tussen
@@ -60,7 +63,7 @@ public class KantineSimulatie2 {
      * @param max
      * @return De array met random getallen
      */
-    private int[] getRandomArray(int lengte, int min, int max) {
+    private static int[] getRandomArray(int lengte, int min, int max) {
         int[] temp = new int[lengte];
         for(int i = 0; i < lengte ;i++) {
             temp[i] = getRandomValue(min, max);
@@ -77,7 +80,8 @@ public class KantineSimulatie2 {
      * @param max
      * @return Een random getal
      */
-    private int getRandomValue(int min, int max) {
+    private static int getRandomValue(int min, int max) {
+        random = new Random();
         return random.nextInt(max - min + 1) + min;
     }
 
@@ -88,7 +92,7 @@ public class KantineSimulatie2 {
      * @param indexen
      * @return De array met artikelnamen
      */
-    private String[] geefArtikelNamen(int[] indexen) {
+    private static String[] geefArtikelNamen(int[] indexen) {
         String[] artikelen = new String[indexen.length];
 
         for(int i = 0; i < indexen.length; i++) {
@@ -105,51 +109,81 @@ public class KantineSimulatie2 {
      *
      * @param dagen
      */
-    public void simuleer(int dagen) {
+    public static void simuleer(int dagen) {
+        kantine = new Kantine();
         // for lus voor dagen
         for(int i = 0; i < dagen; i++) {
 
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = 20 ;
+            int aantalpersonen = 20 + getRandomValue(0, 30);
 
 
             // laat de personen maar komen...
-            for(int j = 0; j < aantalpersonen; j++) {
+            for(int j = 0; j <= aantalpersonen; j++) {
 
                 Persoon person = new Persoon();
                 Dienblad dienblad = new Dienblad();
 
                 dienblad.setKlant(person);
 
-                kassarij.sluitAchteraan(dienblad);
+
+
 
                 int aantalartikelen = 2 ;
 
 
                 // genereer de "artikelnummers", dit zijn indexen
                 // van de artikelnamen
-                array int[] tepakken = getRandomArray(
+                int[] tepakken = getRandomArray(
                     aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+
+                int aantalpak = tepakken[0];
 
                 // vind de artikelnamen op basis van
                 // de indexen hierboven
                 String[] artikelen = geefArtikelNamen(tepakken);
 
+
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
+
+
+                for (int x = 0; x <= aantalpak; x++){
+                    Artikel art = new Artikel();
+                    dienblad.voegToe(art);
+                }
+
+                kantine.getKassarij().sluitAchteraan(dienblad);
+
+
 
 
 
             }
 
-            // verwerk rij voor de kassa
+            kantine.loopPakSluitAan();
 
             // druk de dagtotalen af en hoeveel personen binnen
-
             // zijn gekomen
-
+            System.out.println("--Het is vandaag Dag " + i + "--");
+            System.out.println("Geld in de kassa: " + kantine.getKassa().hoeveelheidGeldInKassa() + " Euro.");
+            System.out.println("Verkochte artikelen: " + (kantine.getKassa().aantalArtikelen() + "."));
+            System.out.println("Aantal personen dat kantine bezocht: " + aantalpersonen + "." );
+            System.out.println("-----------------------");
             // reset de kassa voor de volgende dag
+            kantine.resetKassa();
 
         }
+    }
+    public static void main(String[] args) {
+        int dagen;
+
+        if (args.length == 0) {
+            dagen = 365;
+        } else {
+            dagen = Integer.parseInt(args[0]);
+        }
+
+        simuleer(dagen);
     }
 }
