@@ -2,7 +2,6 @@ public class Kantine {
 
     private Kassa kassa;
     private KassaRij kassarij;
-    private int id;
 
     /**
      * Constructor
@@ -10,7 +9,6 @@ public class Kantine {
     public Kantine() {
         kassarij = new KassaRij();
         kassa = new Kassa(kassarij);
-        id = 0;
     }
 
     /**
@@ -20,16 +18,27 @@ public class Kantine {
      * Persoon zich aan bij de rij voor de kassa.
      */
     public void loopPakSluitAan() {
+        Persoon person = new Persoon();
+        Dienblad dienblad = new Dienblad();
+        Artikel artikel1 = new Artikel();
+        Artikel artikel2 = new Artikel();
+
+        dienblad.setKlant(person);
+        dienblad.voegToe(artikel1);
+        dienblad.voegToe(artikel2);
+
+        kassarij.sluitAchteraan(dienblad);
+
     }
 
     /**
      * Deze methode handelt de rij voor de kassa af.
      */
     public void verwerkRijVoorKassa() {
-
+        while(kassarij.erIsEenRij()) {
+            kassarij.eerstePersoonInRij();
+        }
     }
-
-
 
     /**
      * Deze methode telt het geld uit de kassa
@@ -37,8 +46,7 @@ public class Kantine {
      * @return hoeveelheid geld in kassa
      */
     public double hoeveelheidGeldInKassa() {
-       // method body omitted
-
+       return kassa.hoeveelheidGeldInKassa();
     }
 
     /**
@@ -47,7 +55,7 @@ public class Kantine {
      * @return het aantal gepasseerde artikelen
      */
     public int aantalArtikelen() {
-        // method body omitted
+        return kassa.aantalArtikelen();
     }
 
     /**
@@ -55,6 +63,7 @@ public class Kantine {
      * het aantal artikelen en "leegt" de inhoud van de kassa.
      */
     public void resetKassa() {
-        // method body omitted
+       kassa.resetKassa();
+       System.out.println("De kassa is gereset!");
     }
 }

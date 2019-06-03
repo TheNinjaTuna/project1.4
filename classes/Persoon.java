@@ -1,12 +1,12 @@
 class Persoon {
-   private string burgerservicenummer;
-   private string voornaam;
-   private string achternaam;
-   private Date geboortedatum;
+   private String burgerservicenummer;
+   private String voornaam;
+   private String achternaam;
+   private Datum geboortedatum;
    private char geslacht;
 
     public Persoon() {
-        this.geslacht = null;
+        this.geslacht = 'O';
         this.geboortedatum = null;
     }
 
@@ -21,60 +21,64 @@ class Persoon {
                 '}';
     }
 
-    public Persoon(string burgerservicenummer, string voornaam, string achternaam, date geboortedatum, char geslacht) {
+    public Persoon(String burgerservicenummer, String voornaam, String achternaam, Datum geboortedatum, String ges) {
         this.burgerservicenummer = burgerservicenummer;
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.geboortedatum = geboortedatum;
-        setGeslacht(this.geslacht);
+        setGeslacht(ges);
     }
 
 
 
-    public void setBurgerservicenummer(string burgerservicenummer) {
+    public void setBurgerservicenummer(String burgerservicenummer) {
         this.burgerservicenummer = burgerservicenummer;
     }
 
-    public void setVoornaam(string voornaam) {
+    public void setVoornaam(String voornaam) {
         this.voornaam = voornaam;
     }
 
-    public void setAchternaam(string achternaam) {
+    public void setAchternaam(String achternaam) {
         this.achternaam = achternaam;
     }
 
-    public void setGeboortedatum(date geboortedatum) {
+    public void setGeboortedatum(Datum geboortedatum) {
         this.geboortedatum = geboortedatum;
     }
 
-    public void setGeslacht(char geslacht) {
-        if (geslacht == "Man"){this.geslacht ==  "Man"};
-        if (geslacht == "Vrouw")(this.geslacht == "Vrouw"};
-        this.geslacht == null;
-        System.out.println("Setten van geslacht is niet gelukt; vul in 'Man' of 'Vrouw'");
-    }
+    public void setGeslacht(String ges) {
+        boolean isSet = false;
+        if (ges == "Man"){this.geslacht = 'M'; isSet = true;}
+        if (ges == "Vrouw"){this.geslacht = 'V'; isSet = true;}
+        if (!isSet){this.geslacht = 'O'; System.out.println("Setten van geslacht mislukt, geef op 'Man' of 'Vrouw'.");}
+
+    };
 
 
 //Getters van instantievariabellen
-    public string getBurgerservicenummer() {
+    public String getBurgerservicenummer() {
         return burgerservicenummer;
     }
 
-    public string getVoornaam() {
+    public String getVoornaam() {
         return voornaam;
     }
 
-    public string getAchternaam() {
+    public String getAchternaam() {
         return achternaam;
     }
 
+    //getDatumAsString is voor week 1 nog niet relevant!
+
     public String getGeboortedatum() {
-        return geboortedatum.getDatumAsString;
+        //return geboortedatum.getDatumAsString;
+        return "nee";
     }
 
     public String getGeslacht() {
-        if (geslacht == "Man") {return "Man"};
-        if (geslacht == "Vrouw") {return "Vrouw"};
+        if (geslacht == 'M') {return "Man";}
+        if (geslacht == 'V') {return "Vrouw";};
         return "Onbekend";
     }
 

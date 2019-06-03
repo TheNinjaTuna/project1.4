@@ -1,6 +1,6 @@
 public class KantineSimulatie {
 
-    private Kantine kantine;
+    private static Kantine kantine;
 
     public static final int DAGEN = 7;
 
@@ -15,26 +15,28 @@ public class KantineSimulatie {
      * Deze methode simuleert een aantal dagen in het
      * verloop van de kantine
      *
-     * @param dagen
+     * @param dagen is het aantal dagan dat hij al draaiende is
      */
-    public void simuleer(int dagen) {
-
+    public static void simuleer(int dagen) {
+        kantine = new Kantine();
         // herhaal voor elke dag
-        for(int i = 0; ...) {
+        for(int i = 0; i >= 0; i ++) {
 
             // per dag nu even vast 10 + i personen naar binnen
             // laten gaan, wordt volgende week veranderd...
 
             // for lus voor personen
             for(int j = 0; j < 10 + i; j++){
-                // kantine.(...);
+                kantine.loopPakSluitAan();
             }
 
-            // verwerk rij voor de kassa
+            kantine.verwerkRijVoorKassa();
 
-            // toon dagtotalen (artikelen en geld in kassa)
+            System.out.println("Vandaag is het: Dag " + i);
+            System.out.println("Bedrag in Kassa: " + kantine.hoeveelheidGeldInKassa() + " Euro.");
+            System.out.println("Aantal verkochte artikelen: " + kantine.aantalArtikelen() + ".");
 
-            // reset de kassa voor de volgende dag
+            kantine.resetKassa();
         }
     }
 
@@ -50,6 +52,6 @@ public class KantineSimulatie {
             dagen = Integer.parseInt(args[0]);
         }
 
-        simulate(dagen);
+        simuleer(dagen);
     }
 }

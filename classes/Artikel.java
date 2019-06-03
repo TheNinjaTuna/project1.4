@@ -1,13 +1,13 @@
 class Artikel
 {
     private String naam;
-    private float prijs;
+    private double prijs;
 
     public Artikel() {
-
+       naam = "nonameyet";
     }
 
-    public Artikel(String naam, float prijs) {
+    public Artikel(String naam, double prijs) {
 
     }
 
@@ -29,10 +29,10 @@ class Artikel
     }
 
     /// Getters en setters van prijs
-    public float getPrijs() {
+    public double getPrijs() {
         return prijs;
     }
-    public void setPrijs(float prijs) {
+    public void setPrijs(double prijs) {
         this.prijs = prijs;
     }
 
