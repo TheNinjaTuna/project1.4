@@ -3,14 +3,14 @@ import java.util.Iterator;
 import java.util.Stack;
 
 public class Dienblad {
-    private ArrayList<Artikel> artikelen;
+    private Stack<Artikel> artikelen;
     private Persoon klant;
 
     /**
      * Constructor
      */
     public Dienblad() {
-        artikelen = new ArrayList<Artikel>();
+        artikelen = new Stack<>();
     }
 
     public Dienblad(Persoon klantinvoer) {
