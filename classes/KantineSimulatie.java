@@ -126,14 +126,10 @@ public class KantineSimulatie {
 
                 dienblad.setKlant(person);
 
-
-
-
                 int aantalartikelen = 2 ;
 
-
-                // genereer de "artikelnummers", dit zijn indexen
-                // van de artikelnamen
+                // genereer de "artikelnummers", dit zijn indexe
+                // van de artikelnamenn
                 int[] tepakken = getRandomArray(
                     aantalartikelen, 0, AANTAL_ARTIKELEN-1);
 
@@ -147,21 +143,18 @@ public class KantineSimulatie {
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
 
-
-                for (int x = 0; x <= aantalpak; x++){
+                for (int x = 0; x < aantalpak; x++){
                     Artikel art = new Artikel();
+                    System.out.println("Er is voor " + x + " een artikel toegevoegd");
+
+
                     dienblad.voegToe(art);
                 }
-
+                System.out.println("Loop finish");
                 kantine.getKassarij().sluitAchteraan(dienblad);
-
-
-
-
+                kantine.verwerkRijVoorKassa(dienblad);
 
             }
-
-            kantine.loopPakSluitAan();
 
             // druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen
@@ -183,7 +176,6 @@ public class KantineSimulatie {
         } else {
             dagen = Integer.parseInt(args[0]);
         }
-
         simuleer(dagen);
     }
 }

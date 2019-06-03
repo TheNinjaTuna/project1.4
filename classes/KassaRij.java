@@ -36,7 +36,9 @@ public class KassaRij {
             this.klanten.remove(0);
             return eersteKlant;
 
+
         }
+
         return eersteKlant;
 
     }

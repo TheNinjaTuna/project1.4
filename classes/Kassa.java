@@ -28,6 +28,7 @@ public class Kassa {
         totaleopbrengst += klant.getTotalePrijs();
 
 
+
     }
 
     /**
