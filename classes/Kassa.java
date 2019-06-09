@@ -26,9 +26,6 @@ public class Kassa {
     public void rekenAf(Dienblad klant) {
         aantalverkocht += klant.getAantalArtikelen();
         totaleopbrengst += klant.getTotalePrijs();
-
-
-
     }
 
     /**

@@ -6,19 +6,18 @@ public class KantineSimulatie {
     // kantine
     private static Kantine kantine;
 
-
     // kantineaanbod
     private KantineAanbod kantineaanbod;
 
     // random generator
-    private static Random random;
+    private Random random;
 
     // aantal artikelen
     private static final int AANTAL_ARTIKELEN = 4;
 
     // artikelen
     private static final String[] artikelnamen = new String[]
-        {"Koffie", "Broodje pindakaas", "Broodje kaas", "Appelsap"};
+            {"Koffie", "Broodje pindakaas", "Broodje kaas", "Appelsap"};
 
     // prijzen
     private static double[] artikelprijzen = new double[]{1.50, 2.10, 1.65, 1.65};
@@ -43,16 +42,17 @@ public class KantineSimulatie {
         kantine = new Kantine();
         random = new Random();
         int[] hoeveelheden = getRandomArray(
-            AANTAL_ARTIKELEN,
-            MIN_ARTIKELEN_PER_SOORT,
-            MAX_ARTIKELEN_PER_SOORT);
+                AANTAL_ARTIKELEN,
+                MIN_ARTIKELEN_PER_SOORT,
+                MAX_ARTIKELEN_PER_SOORT);
+        //System.out.println(artikelnamen.toString());
+        //System.out.println(artikelprijzen.toString());
+        //System.out.println(hoeveelheden.toString());
         kantineaanbod = new KantineAanbod(
-            artikelnamen, artikelprijzen, hoeveelheden);
-
+                artikelnamen, artikelprijzen, hoeveelheden);
+       System.out.println(kantineaanbod.toString());
         kantine.setKantineaanbod(kantineaanbod);
     }
-
-
 
     /**
      * Methode om een array van random getallen liggend tussen
@@ -63,7 +63,7 @@ public class KantineSimulatie {
      * @param max
      * @return De array met random getallen
      */
-    private static int[] getRandomArray(int lengte, int min, int max) {
+    private int[] getRandomArray(int lengte, int min, int max) {
         int[] temp = new int[lengte];
         for(int i = 0; i < lengte ;i++) {
             temp[i] = getRandomValue(min, max);
@@ -80,8 +80,7 @@ public class KantineSimulatie {
      * @param max
      * @return Een random getal
      */
-    private static int getRandomValue(int min, int max) {
-        random = new Random();
+    private int getRandomValue(int min, int max) {
         return random.nextInt(max - min + 1) + min;
     }
 
@@ -92,7 +91,7 @@ public class KantineSimulatie {
      * @param indexen
      * @return De array met artikelnamen
      */
-    private static String[] geefArtikelNamen(int[] indexen) {
+    private String[] geefArtikelNamen(int[] indexen) {
         String[] artikelen = new String[indexen.length];
 
         for(int i = 0; i < indexen.length; i++) {
@@ -109,73 +108,68 @@ public class KantineSimulatie {
      *
      * @param dagen
      */
-    public static void simuleer(int dagen) {
-        kantine = new Kantine();
+    public void simuleer(int dagen) {
         // for lus voor dagen
         for(int i = 0; i < dagen; i++) {
 
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = 20 + getRandomValue(0, 30);
-
+            int aantalpersonen = 20 ;
 
             // laat de personen maar komen...
-            for(int j = 0; j <= aantalpersonen; j++) {
+            for(int j = 0; j < aantalpersonen; j++) {
 
-                Persoon person = new Persoon();
-                Dienblad dienblad = new Dienblad();
+                // maak persoon en dienblad aan, koppel ze
+                // en bedenk hoeveel artikelen worden gepakt
 
-                dienblad.setKlant(person);
+                Persoon genPersoon = new Persoon();
+                Dienblad genDienblad = new Dienblad();
 
-                int aantalartikelen = 2 ;
+                genDienblad.setKlant(genPersoon);
 
-                // genereer de "artikelnummers", dit zijn indexe
-                // van de artikelnamenn
+
+                int aantalartikelen = 2;
+
+                // genereer de "artikelnummers", dit zijn indexen
+                // van de artikelnamen
                 int[] tepakken = getRandomArray(
-                    aantalartikelen, 0, AANTAL_ARTIKELEN-1);
-
-                int aantalpak = tepakken[0];
+                        aantalartikelen, 0, AANTAL_ARTIKELEN-1);
 
                 // vind de artikelnamen op basis van
                 // de indexen hierboven
                 String[] artikelen = geefArtikelNamen(tepakken);
 
-
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
 
-                for (int x = 0; x < aantalpak; x++){
-                    Artikel art = new Artikel();
-                    System.out.println("Er is voor " + x + " een artikel toegevoegd");
-
-
-                    dienblad.voegToe(art);
+                for(String str : artikelen){
+                  //  System.out.println("Er is: " + str + " gepakt.");
+                    genDienblad.voegToe(kantineaanbod.getArtikel("str"));
                 }
-                System.out.println("Loop finish");
-                kantine.getKassarij().sluitAchteraan(dienblad);
-                kantine.verwerkRijVoorKassa(dienblad);
-
+                kantine.getKassarij().sluitAchteraan(genDienblad);
             }
+
+
+            // verwerk rij voor de kassa
+           // System.out.println((kantine.getKassarij().eerstePersoonInRij().toString()));
+           // System.out.println(kantineaanbod.toString());
+            kantine.verwerkRijVoorKassa(kantine.getKassarij().eerstePersoonInRij());
 
             // druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen
-            System.out.println("--Het is vandaag Dag " + i + "--");
-            System.out.println("Geld in de kassa: " + kantine.getKassa().hoeveelheidGeldInKassa() + " Euro.");
-            System.out.println("Verkochte artikelen: " + (kantine.getKassa().aantalArtikelen() + "."));
-            System.out.println("Aantal personen dat kantine bezocht: " + aantalpersonen + "." );
-            System.out.println("-----------------------");
+
+            System.out.println("---Het is vandaag dag: " + i + " ---");
+            System.out.println("Hoeveelheid geld in kassa: €" + kantine.getKassa().hoeveelheidGeldInKassa() + ".");
+            System.out.println("Aantal artikellen verkocht: " + kantine.getKassa().aantalArtikelen() + ".");
+            System.out.println("Aantalbezoekers vandaag: " + aantalpersonen + ".");
+            System.out.println("---------------------------");
+
+
             // reset de kassa voor de volgende dag
+
             kantine.resetKassa();
 
         }
     }
-    public static void main(String[] args) {
-        int dagen;
 
-        if (args.length == 0) {
-            dagen = 365;
-        } else {
-            dagen = Integer.parseInt(args[0]);
-        }
-        simuleer(dagen);
-    }
+
 }

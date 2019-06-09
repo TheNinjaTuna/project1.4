@@ -31,12 +31,10 @@ public class KassaRij {
      */
     public Dienblad eerstePersoonInRij() {
         Dienblad eersteKlant = null;
-        if (this.klanten.size() >0) {
-            eersteKlant = this.klanten.get(0);
-            this.klanten.remove(0);
+
+        if (this.klanten.size() > 0) {
+            eersteKlant = this.klanten.removeFirst();
             return eersteKlant;
-
-
         }
 
         return eersteKlant;

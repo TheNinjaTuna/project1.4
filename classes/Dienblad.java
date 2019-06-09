@@ -33,7 +33,7 @@ public class Dienblad {
      */
     public int getAantalArtikelen() {
         int aantal = 0;
-        for (int x = 0; x <= artikelen.size(); x++ ){aantal += 1;}
+        for (int x = 0; x < artikelen.size(); x++ ){aantal += 1;}
         return aantal;
     }
 
@@ -47,9 +47,17 @@ public class Dienblad {
         double tot = 0;
         for (int x = 0; x < artikelen.size(); x++)
         {
-         tot += artikelen.get(x).getPrijs();
+         tot += 5 ;//artikelen.get(x).getPrijs(); //tijdelijke aanpassing want artikellen krijgen nulwaarden
         }
         return tot;
+    }
+
+    @Override
+    public String toString() {
+        return "Dienblad{" +
+                "artikelen=" + artikelen +
+                ", klant=" + klant +
+                '}';
     }
 
     public Persoon getKlant() {

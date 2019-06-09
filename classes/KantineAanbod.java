@@ -29,6 +29,15 @@ public class KantineAanbod {
         }
     }
 
+    @Override
+    public String toString() {
+        return "KantineAanbod{" +
+                "aanbod=" + aanbod +
+                ", startVoorraad=" + startVoorraad +
+                ", prijzen=" + prijzen +
+                '}';
+    }
+
     private void vulVoorraadAan(String productnaam){
     	ArrayList<Artikel> huidigeVoorraad = aanbod.get(productnaam);
     	int startHoeveelheid = startVoorraad.get(productnaam);
