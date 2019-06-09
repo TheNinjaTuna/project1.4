@@ -113,7 +113,7 @@ public class KantineSimulatie {
         for(int i = 0; i < dagen; i++) {
 
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = 20 ;
+            int aantalpersonen = 20 + getRandomValue(1, 20) ;
 
             // laat de personen maar komen...
             for(int j = 0; j < aantalpersonen; j++) {
@@ -127,7 +127,7 @@ public class KantineSimulatie {
                 genDienblad.setKlant(genPersoon);
 
 
-                int aantalartikelen = 2;
+                int aantalartikelen = getRandomValue(1, 3);
 
                 // genereer de "artikelnummers", dit zijn indexen
                 // van de artikelnamen
@@ -142,26 +142,30 @@ public class KantineSimulatie {
                 // artikelen, sluit aan
 
                 for(String str : artikelen){
-                  //  System.out.println("Er is: " + str + " gepakt.");
-                    genDienblad.voegToe(kantineaanbod.getArtikel("str"));
+                   // System.out.println("Er is: " + str + " gepakt.");
+                    genDienblad.voegToe(kantineaanbod.getArtikel(str));
+                   // System.out.println(genDienblad.toString());
+                  //  System.out.println(kantineaanbod.getArtikel(str));
                 }
                 kantine.getKassarij().sluitAchteraan(genDienblad);
             }
 
+            kantine.verwerkRijVoorKassa();
 
             // verwerk rij voor de kassa
-           // System.out.println((kantine.getKassarij().eerstePersoonInRij().toString()));
+
+            //System.out.println((kantine.getKassarij().eerstePersoonInRij().toString()));
            // System.out.println(kantineaanbod.toString());
-            kantine.verwerkRijVoorKassa(kantine.getKassarij().eerstePersoonInRij());
+
 
             // druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen
 
-            System.out.println("---Het is vandaag dag: " + i + " ---");
+            System.out.println("--- Het is vandaag dag: " + i + " ---");
             System.out.println("Hoeveelheid geld in kassa: €" + kantine.getKassa().hoeveelheidGeldInKassa() + ".");
             System.out.println("Aantal artikellen verkocht: " + kantine.getKassa().aantalArtikelen() + ".");
             System.out.println("Aantalbezoekers vandaag: " + aantalpersonen + ".");
-            System.out.println("---------------------------");
+            System.out.println("-------------------------------");
 
 
             // reset de kassa voor de volgende dag

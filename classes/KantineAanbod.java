@@ -16,12 +16,15 @@ public class KantineAanbod {
         aanbod=new HashMap<String, ArrayList<Artikel>>();
         startVoorraad=new HashMap<String, Integer>();
         prijzen=new HashMap<String,Double>();
-        for(int i=0;i<artikelnaam.length;i++) 
+        for(int i=0;i<artikelnaam.length;i++)
         {
             ArrayList<Artikel> artikelen=new ArrayList<Artikel>();
             for(int j=0;j<hoeveelheid[i];j++) 
             {
                 artikelen.add(new Artikel(artikelnaam[i], prijs[i]));
+               // System.out.println("Nieuw artikel: " + artikelnaam[i]);
+               // System.out.println("Prijs " + prijs[i]);
+               // System.out.println(artikelen.get(i).toString());
             }
             startVoorraad.put(artikelnaam[i], hoeveelheid[i]);
             prijzen.put(artikelnaam[i], prijs[i]);
@@ -55,7 +58,8 @@ public class KantineAanbod {
      * naam van het artikel. Retourneert null als artikel niet bestaat.
      */
     private ArrayList<Artikel> getArrayList(String productnaam) {
-         return aanbod.get(productnaam); 
+       // System.out.println("Op zoek naar: " + productnaam);
+        return aanbod.get(productnaam);
     }
 
     /**

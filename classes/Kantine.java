@@ -16,10 +16,9 @@ public class Kantine {
     /**
      * Deze methode handelt de rij voor de kassa af.
      */
-    public void verwerkRijVoorKassa(Dienblad dien) {
+    public void verwerkRijVoorKassa() {
         while(kassarij.erIsEenRij()) {
-            kassarij.eerstePersoonInRij();
-             kassa.rekenAf(dien);
+           kassa.rekenAf(kassarij.eerstePersoonInRij());
         }
     }
 

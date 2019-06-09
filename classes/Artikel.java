@@ -7,8 +7,9 @@ class Artikel
        naam = "nonameyet";
     }
 
-    public Artikel(String naam, double prijs) {
-
+    public Artikel(String naamI, double prijsI) {
+        naam = naamI;
+        prijs = prijsI;
     }
 
     @java.lang.Override

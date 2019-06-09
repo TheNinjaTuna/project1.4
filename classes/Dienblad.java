@@ -45,9 +45,10 @@ public class Dienblad {
      */
     public double getTotalePrijs() {
         double tot = 0;
-        for (int x = 0; x < artikelen.size(); x++)
-        {
-         tot += 5 ;//artikelen.get(x).getPrijs(); //tijdelijke aanpassing want artikellen krijgen nulwaarden
+        for (Artikel art : artikelen)
+        {//System.out.println(art.toString());
+         //System.out.println("Bij: " + art.getPrijs());
+         tot += art.getPrijs();
         }
         return tot;
     }
