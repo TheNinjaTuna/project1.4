@@ -47,10 +47,10 @@ class Persoon {
         this.geboortedatum = geboortedatum;
     }
 
-    public void setGeslacht(String ges) {
+    public void setGeslacht(String geslacht) {
         boolean isSet = false;
-        if (ges == "Man"){this.geslacht = 'M'; isSet = true;}
-        if (ges == "Vrouw"){this.geslacht = 'V'; isSet = true;}
+        if (geslacht == "Man"){this.geslacht = 'M'; isSet = true;}
+        if (geslacht == "Vrouw"){this.geslacht = 'V'; isSet = true;}
         if (!isSet){this.geslacht = 'O'; System.out.println("Setten van geslacht mislukt, geef op 'Man' of 'Vrouw'.");}
 
     };
@@ -78,7 +78,7 @@ class Persoon {
 
     public String getGeslacht() {
         if (geslacht == 'M') {return "Man";}
-        if (geslacht == 'V') {return "Vrouw";};
+        if (geslacht == 'V') {return "Vrouw";}
         return "Onbekend";
     }
 

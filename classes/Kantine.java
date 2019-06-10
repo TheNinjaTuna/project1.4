@@ -36,7 +36,7 @@ public class Kantine {
      */
     public void resetKassa() {
        kassa.resetKassa();
-       System.out.println("De kassa is gereset!");
+       //System.out.println("De kassa is gereset!");
     }
 
     public KantineAanbod getKantineaanbod() {

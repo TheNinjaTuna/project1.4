@@ -51,6 +51,7 @@ public class KantineAanbod {
         	huidigeVoorraad.add(new Artikel(productnaam, prijs));
         }
         aanbod.put(productnaam, huidigeVoorraad);
+        System.out.println("bijgevuld:" + productnaam );
     }
     
     /*
@@ -86,7 +87,7 @@ public class KantineAanbod {
     /**
      * Publieke methode om een artikel via naam van de stapel te pakken.
      * Retouneert null als artikel niet bestaat of niet op voorraad is.
-     * @param naam (van artikel)
+     * @param "naam" (van artikel)
      * @return artikel (of null)
      */
     public Artikel getArtikel(String productnaam) {
