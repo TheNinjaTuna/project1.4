@@ -3,6 +3,10 @@ public class Docent extends Persoon {
     private String vierLetterAfkorting;
     private String afdeling;
 
+    public Docent() {
+        super();
+    }
+
     public Docent(String burgerservicenummer, String voornaam, String achternaam, Datum geboortedatum, String geslacht, String vierLetterAfkorting, String afdeling) {
         super(burgerservicenummer, voornaam, achternaam, geboortedatum, geslacht);
         this.vierLetterAfkorting = vierLetterAfkorting;

@@ -3,6 +3,11 @@ public class KantineMedewerker extends Persoon {
     private int medewerkersNummer;
     private boolean magAchterKassa;
 
+
+    public KantineMedewerker() {
+        super();
+    }
+
     public KantineMedewerker(String burgerservicenummer, String voornaam, String achternaam, Datum geboortedatum, String geslacht, String vierLetterAfkorting, String afdeling) {
         super(burgerservicenummer, voornaam, achternaam, geboortedatum, geslacht);
         this.medewerkersNummer = medewerkersNummer;

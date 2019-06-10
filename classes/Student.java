@@ -3,6 +3,10 @@ public class Student extends Persoon {
     private int studentNummer;
     private String studieRichting;
 
+    public Student() {
+        super();
+    }
+
     public Student(String burgerservicenummer, String voornaam, String achternaam, Datum geboortedatum, String geslacht, int studentNummer, String studieRichting) {
         super(burgerservicenummer, voornaam, achternaam, geboortedatum, geslacht);
         this.studentNummer = studentNummer;

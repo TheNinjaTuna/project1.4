@@ -51,7 +51,7 @@ public class KantineAanbod {
         	huidigeVoorraad.add(new Artikel(productnaam, prijs));
         }
         aanbod.put(productnaam, huidigeVoorraad);
-        System.out.println("bijgevuld:" + productnaam );
+       // System.out.println("bijgevuld:" + productnaam );
     }
     
     /*

@@ -34,6 +34,15 @@ public class KantineSimulatie {
     private static final int MIN_ARTIKELEN_PER_PERSOON = 1;
     private static final int MAX_ARTIKELEN_PER_PERSOON = 4;
 
+
+   //administratievars
+    private double[] omzetA;
+    private int[] aantalpersonen;
+    private int[] aantalartikelen;
+
+
+
+
     /**
      * Constructor
      *
@@ -53,6 +62,8 @@ public class KantineSimulatie {
        System.out.println(kantineaanbod.toString());
         kantine.setKantineaanbod(kantineaanbod);
     }
+
+
 
     /**
      * Methode om een array van random getallen liggend tussen
@@ -110,21 +121,22 @@ public class KantineSimulatie {
      */
     public void simuleer(int dagen) {
         // for lus voor dagen
+        omzetA = new double[dagen];
+        aantalartikelen = new int[dagen];
+        aantalpersonen = new int[dagen];
+
         for(int i = 0; i < dagen; i++) {
 
-            // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = 20 + getRandomValue(1, 20) ;
 
-            // laat de personen maar komen...
-            for(int j = 0; j < aantalpersonen; j++) {
 
-                // maak persoon en dienblad aan, koppel ze
+            for (int x = 0; x < 90; x ++){
+                // maak per persoon en dienblad aan, koppel ze
                 // en bedenk hoeveel artikelen worden gepakt
 
-                Persoon genPersoon = new Persoon();
+                Student genStudent = new Student();
                 Dienblad genDienblad = new Dienblad();
 
-                genDienblad.setKlant(genPersoon);
+                genDienblad.setKlant(genStudent);
 
 
                 int aantalartikelen = getRandomValue(1, 3);
@@ -142,10 +154,76 @@ public class KantineSimulatie {
                 // artikelen, sluit aan
 
                 for(String str : artikelen){
-                    System.out.println("Er is: " + str + " gepakt.");
+                   // System.out.println("Er is: " + str + " gepakt.");
                     genDienblad.voegToe(kantineaanbod.getArtikel(str));
                    // System.out.println(genDienblad.toString());
                   //  System.out.println(kantineaanbod.getArtikel(str));
+                }
+                kantine.getKassarij().sluitAchteraan(genDienblad);
+            }
+
+            for (int x = 0; x < 10; x ++){
+                // maak per persoon en dienblad aan, koppel ze
+                // en bedenk hoeveel artikelen worden gepakt
+
+                Docent genDocent = new Docent();
+                Dienblad genDienblad = new Dienblad();
+
+                genDienblad.setKlant(genDocent);
+
+
+                int aantalartikelen = getRandomValue(1, 3);
+
+                // genereer de "artikelnummers", dit zijn indexen
+                // van de artikelnamen
+                int[] tepakken = getRandomArray(
+                        aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+
+                // vind de artikelnamen op basis van
+                // de indexen hierboven
+                String[] artikelen = geefArtikelNamen(tepakken);
+
+                // loop de kantine binnen, pak de gewenste
+                // artikelen, sluit aan
+
+                for(String str : artikelen){
+                   // System.out.println("Er is: " + str + " gepakt.");
+                    genDienblad.voegToe(kantineaanbod.getArtikel(str));
+                    // System.out.println(genDienblad.toString());
+                    //  System.out.println(kantineaanbod.getArtikel(str));
+                }
+                kantine.getKassarij().sluitAchteraan(genDienblad);
+            }
+
+            for (int x = 0; x < 2; x ++){
+                // maak per persoon en dienblad aan, koppel ze
+                // en bedenk hoeveel artikelen worden gepakt
+
+                KantineMedewerker genMedew = new KantineMedewerker();
+                Dienblad genDienblad = new Dienblad();
+
+                genDienblad.setKlant(genMedew);
+
+
+                int aantalartikelen = getRandomValue(1, 3);
+
+                // genereer de "artikelnummers", dit zijn indexen
+                // van de artikelnamen
+                int[] tepakken = getRandomArray(
+                        aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+
+                // vind de artikelnamen op basis van
+                // de indexen hierboven
+                String[] artikelen = geefArtikelNamen(tepakken);
+
+                // loop de kantine binnen, pak de gewenste
+                // artikelen, sluit aan
+
+                for(String str : artikelen){
+                   // System.out.println("Er is: " + str + " gepakt.");
+                    genDienblad.voegToe(kantineaanbod.getArtikel(str));
+                    // System.out.println(genDienblad.toString());
+                    //  System.out.println(kantineaanbod.getArtikel(str));
                 }
                 kantine.getKassarij().sluitAchteraan(genDienblad);
             }
@@ -161,11 +239,32 @@ public class KantineSimulatie {
             // druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen
 
-            System.out.println("--- Het is vandaag dag: " + i + " ---");
+            aantalpersonen[i] = 100;
+            aantalartikelen[i] = kantine.getKassa().aantalArtikelen();
+            omzetA[i] = kantine.getKassa().hoeveelheidGeldInKassa();
+
+
+
+
+            System.out.println("--- Het is vandaag dag: " + (i+1) + " ---");
             System.out.println("Hoeveelheid geld in kassa: €" + kantine.getKassa().hoeveelheidGeldInKassa() + ".");
             System.out.println("Aantal artikellen verkocht: " + kantine.getKassa().aantalArtikelen() + ".");
-            System.out.println("Aantalbezoekers vandaag: " + aantalpersonen + ".");
+            System.out.println("Aantalbezoekers vandaag: " + 100 + ".");
+            System.out.println(" ");
+            System.out.println("Gemmidelde omzet tot nu toe: €" + Administratie.berekenGemiddeldeOmzet(omzetA));
+            System.out.println("Gemiddeeld aantal personen tot nu toe: " + Administratie.berekenGemiddeldAantal(aantalpersonen));
+            System.out.println("Gemmidelde artikelen tot nu toe: " + Administratie.berekenGemiddeldAantal(aantalartikelen));
+            System.out.println(" ");
+            System.out.println("Opgrengsten per Weekdag:");
+            System.out.println("Maandag: €" + Administratie.berekenDagOmzet(omzetA)[0]);
+            System.out.println("Dinsdag: €" + Administratie.berekenDagOmzet(omzetA)[1]);
+            System.out.println("Woensdag: €" + Administratie.berekenDagOmzet(omzetA)[2]);
+            System.out.println("Donderdag: €" + Administratie.berekenDagOmzet(omzetA)[3]);
+            System.out.println("Vrijdag: €" + Administratie.berekenDagOmzet(omzetA)[4]);
+            System.out.println("Zaterdag: €" + Administratie.berekenDagOmzet(omzetA)[5]);
+            System.out.println("Zondag: €" + Administratie.berekenDagOmzet(omzetA)[6]);
             System.out.println("-------------------------------");
+            System.out.println(" ");
 
 
             // reset de kassa voor de volgende dag
