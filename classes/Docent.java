@@ -9,6 +9,12 @@ public class Docent extends Persoon {
         this.afdeling = afdeling;
     }
 
+    public Docent(String vierLetterAfkorting, String afdeling) {
+        super();
+        this.vierLetterAfkorting = vierLetterAfkorting;
+        this.afdeling = afdeling;
+    }
+
     public String getVierLetterAfkorting() {
         return vierLetterAfkorting;
     }

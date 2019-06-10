@@ -67,7 +67,10 @@ Week 3 Opdracht 2 H
 Aangezien de methode statisch is verwacht hij elke keer te werken met dezelfde klasse variabellen en hij herkent final niet als een vaste klasse-variabel omdat het niet statisch gedifineerd is.
 
 Week 3 Opdracht 2 I
-Het probleem dat we nu geintroduceerd hebben is dat de variabelle niet meer "vast staat" en dat hij perongeluk veranderd zou kunnen worden, waardoor de werking van het progamma in gevaar komt.
+Het probleem dat we nu geintroduceerd hebben is dat de variabele niet meer "vast staat" en dat hij per ongeluk veranderd zou kunnen worden, waardoor de werking van het progamma in gevaar komt.
+
+Week 3 Opdracht 3 B
+
 
 
 

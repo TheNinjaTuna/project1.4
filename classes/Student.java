@@ -9,6 +9,12 @@ public class Student extends Persoon {
         this.studieRichting = studieRichting;
     }
 
+    public Student(int studentNummer, String studieRichting) {
+        super();
+        this.studentNummer = studentNummer;
+        this.studieRichting = studieRichting;
+    }
+
     public int getStudentNummer() {
         return studentNummer;
     }

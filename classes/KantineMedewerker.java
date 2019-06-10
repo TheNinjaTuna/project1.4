@@ -9,6 +9,12 @@ public class KantineMedewerker extends Persoon {
         this.magAchterKassa = magAchterKassa;
     }
 
+    public KantineMedewerker(int medewerkersNummer, boolean magAchterKassa) {
+        super();
+        this.medewerkersNummer = medewerkersNummer;
+        this.magAchterKassa = magAchterKassa;
+    }
+
     public int getMedewerkersNummer() {
         return medewerkersNummer;
     }
