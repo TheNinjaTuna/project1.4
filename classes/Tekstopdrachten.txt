@@ -51,3 +51,23 @@ Week 2 Opdracht 6
 random.nextInt pakt een nummer van 0 (inclusief) en een aangegeven getal (exclusief)
 Wat dit wil zeggen is dat het een random getal vanaf 0 tot het aangegeven getal is, dus niet tot en MET het aangegeven getal.
 De +1 zorgt ervoor dat wanneer je bijvoorbeeld het getal 50 aangeeft, hij normaal 49 zou pakken. Maar door de +1 pakt hij hier gewoon 50 (49+1).
+
+Week 3 Opdracht 2 C
+Als je geen constructor maakt dan genereert de compiller automatisch een lege constructor.
+
+
+Week 3 Opdracht 2 D
+Als we de twee methoden static maken dan kunnen ze worden aangeroepen vanuit een class context. Dat houd in dat je geen objectinstantie ervan nodig hebt om de functie te gebruiken.
+Aangezien de methode geen gebruik maakt van niet statische variabelen kan dit gewoon veilig gebruikt worden. Maar zo gauw er iets niet statisch aan gegeven wordt krijg je een compiler error.
+
+Week 3 Opdracht 2 E
+Nu de Adminstratie's constructor private is kan een instantie van het object niet meer gemaakt worden buiten de klasse zelf.
+
+Week 3 Opdracht 2 H
+Aangezien de methode statisch is verwacht hij elke keer te werken met dezelfde klasse variabellen en hij herkent final niet als een vaste klasse-variabel omdat het niet statisch gedifineerd is.
+
+Week 3 Opdracht 2 I
+Het probleem dat we nu geintroduceerd hebben is dat de variabelle niet meer "vast staat" en dat hij perongeluk veranderd zou kunnen worden, waardoor de werking van het progamma in gevaar komt.
+
+
+

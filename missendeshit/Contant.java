@@ -6,3 +6,4 @@ public class Contant extends Betaalwijze {
         // method body omitted
     }
 }
+
