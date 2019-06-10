@@ -10,5 +10,5 @@ public class Main {
         sim = new KantineSimulatie();
 
         sim.simuleer(365);
-
-}}
+    }
+}
