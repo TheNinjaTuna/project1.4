@@ -4,16 +4,18 @@ public class Pinpas extends Betaalwijze {
 
     /**
      * Methode om kredietlimiet te zetten
-     * @param kredietlimiet
+     * @param kredietlimiet is het kredietlimiet van de pas.
      */
     public void setKredietLimiet(double kredietlimiet) {
-        // method body omitted
+        this.kredietlimiet = kredietlimiet;
     }
 
     /**
      * Methode om betaling af te handelen
+     * @param tebetalen is het verschuldigt bedrag.
      */
     public boolean betaal(double tebetalen) {
-        // method body omitted
+        if (tebetalen <= kredietlimiet){kredietlimiet -= tebetalen; return true;}
+        return false;
     }
 }

@@ -72,5 +72,7 @@ Het probleem dat we nu geintroduceerd hebben is dat de variabele niet meer "vast
 Week 3 Opdracht 3 B
 Ten eerste compiled het dan niet, maar ook
 
+Week4 Opdracht 1 c
+Protected betekent dat het alleen accesible is binnen dezelfde package, in tegenstelling tot public waar alles er bij kan.
 
 
