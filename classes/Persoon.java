@@ -9,6 +9,7 @@ class Persoon {
     public Persoon() {
         this.geslacht = 'O';
         this.geboortedatum = null;
+        this.betaalwijze = new Contant();
     }
 
     @java.lang.Override
