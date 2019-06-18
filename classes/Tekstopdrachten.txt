@@ -75,4 +75,28 @@ Ten eerste compiled het dan niet, maar ook
 Week4 Opdracht 1 c
 Protected betekent dat het alleen accesible is binnen dezelfde package, in tegenstelling tot public waar alles er bij kan.
 
+Week 4 Opdracht 3 a b c d e f g h
 
+Een interface is net als een abstract class, je geeft deze pas invulling in een andere class.
+De methodes hebben tevens ook geen bodies, dit zorgt er onder andere voor dat er geen instances kunnen worden gemaakt.
+Nee, java support geen meerdere overervingen.
+Ja,
+Ja,
+Ja, je kunt ze geen bodies geven.(java error)
+Nee, je kunt ze implementeren in niet abstracte classes.
+Het houd in dat je invulling geeft aan een bepaalde methode, bij dezelfde methode een andere body.
+Bij interface is er geen body om mee te beginnen, elke klasse die deze implementeerd moet voor elke interface methode een implementatie maken.
+
+
+Week 4 Opdracht a b c d e
+Ja, omdat abstract classes bedoelt zijn om overgeerft te worden, en uitsluitend abstracte methods zijn hier niet voor nodig.
+
+In tegenstelling tot een interface hoeft bij een class die een abstract class overerft niet alles te implementeren omdat
+de methodes in de abstracte classes al een body hebben
+
+Je kunt de class die de interface implementeerd abstract maken, op deze manier hebben de methods geen body nodig.
+
+Abstract is bedoelt om andere dingen te overerven, om die reden kun je het niet gebruiken om iets toe te voegen
+
+Een final method is altijd hetzelfde, en kan dus niet in een overervende class worden veranderd door een override.
+abstract geef je weg om te laten veranderen, terwijl final hetzelfde blijft.

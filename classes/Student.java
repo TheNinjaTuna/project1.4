@@ -5,6 +5,8 @@ public class Student extends Persoon {
 
     public Student() {
         super();
+        studentNummer = 0;
+        studieRichting = ("onbekend");
     }
 
     public Student(String burgerservicenummer, String voornaam, String achternaam, Datum geboortedatum, String geslacht, int studentNummer, String studieRichting) {
