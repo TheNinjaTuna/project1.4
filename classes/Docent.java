@@ -1,10 +1,25 @@
-public class Docent extends Persoon {
+public class Docent extends Persoon implements KortingskaartHouder {
 
     private String vierLetterAfkorting;
     private String afdeling;
 
     public Docent() {
         super();
+    }
+
+    @Override
+    public double geefKortingsPercentage() {
+        return 0.25;
+    }
+
+    @Override
+    public boolean heeftMaximum() {
+        return true;
+    }
+
+    @Override
+    public double geefMaximum() {
+        return 1;
     }
 
     public Docent(String burgerservicenummer, String voornaam, String achternaam, Datum geboortedatum, String geslacht, String vierLetterAfkorting, String afdeling) {

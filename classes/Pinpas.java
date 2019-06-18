@@ -15,7 +15,7 @@ public class Pinpas extends Betaalwijze {
      * @param tebetalen is het verschuldigt bedrag.
      */
     public boolean betaal(double tebetalen) {
-        if (tebetalen <= kredietlimiet){kredietlimiet -= tebetalen; return true;}
+        if (tebetalen <= kredietlimiet){ return true;} //kredietlimiet -= tebetalen;
         return false;
     }
 }

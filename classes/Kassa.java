@@ -24,8 +24,17 @@ public class Kassa {
      * @param klant die moet afrekenen
      */
     public void rekenAf(Dienblad klant) {
+        Persoon bezoeker = klant.getKlant();
+        if (bezoeker.getBetaalwijze().betaal(klant.getTotalePrijs())) {
+        if (bezoeker instanceof Docent || bezoeker instanceof KantineMedewerker){aantalverkocht += klant.getAantalArtikelen();
+            if (((KortingskaartHouder) bezoeker).heeftMaximum() && (klant.getTotalePrijs() * 0.25) >= 1){totaleopbrengst += (klant.getTotalePrijs() - 1);}
+            else if(((KortingskaartHouder) bezoeker).heeftMaximum()){totaleopbrengst += (klant.getTotalePrijs() * 0.75); aantalverkocht += klant.getAantalArtikelen(); bezoeker.getBetaalwijze().betaal((klant.getTotalePrijs() * 0.75));}
+            else {totaleopbrengst += (klant.getTotalePrijs()*0.65); aantalverkocht += klant.getAantalArtikelen(); bezoeker.getBetaalwijze().betaal((klant.getTotalePrijs() * 0.65));}}
         aantalverkocht += klant.getAantalArtikelen();
         totaleopbrengst += klant.getTotalePrijs();
+        klant.getKlant().getBetaalwijze().betaal(klant.getTotalePrijs());
+    }
+        else{System.out.println("Een klant heeft de betaling niet kunnen voltooien.");}
     }
 
     /**
