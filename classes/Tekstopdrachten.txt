@@ -100,3 +100,36 @@ Abstract is bedoelt om andere dingen te overerven, om die reden kun je het niet 
 
 Een final method is altijd hetzelfde, en kan dus niet in een overervende class worden veranderd door een override.
 abstract geef je weg om te laten veranderen, terwijl final hetzelfde blijft.
+
+Week 5 opdracht 1 D
+Deze annotaties laten zien waar de waarden thuis horen in de database.
+Met @column bijvoorbeeld kun je de kolom "student_age" verwijzen door
+    @Column(name = "student_age", nullable = false)
+
+Week 5 opdracht 1E
+
+
+Week 5 Opdracht 2 A, B, C, D
+Omdat een Student meerdere telefoons kan hebben, Een student hoeft niet altijd 1 telefoon te hebben.
+
+B1 - geen idee
+B2 -
+
+C
+Een student kan meerdere studieinschrijvingen hebben. In de tabel zou je dus meerdere studieinschrijvingen
+onder de zelfde persoon kunnen zien.
+
+D
+In de tabel student
+Embeddable zou dan betekenen dat het ergens in te voegen is,
+en het gebruik van 'kaart' in de klasse Student laat zien dat deze Embedded is.
+
+opdracht 3
+A
+
+Bij het invoeren van alle gegevens van een dag, of meerdere dagen worden ingevoerd, als hier een fout voorkomt
+dan wordt alles weer teruggezet, en zit je niet met allerlei gegevens die wel goed zijn gelukt en niet gelukt zijn,
+
+
+
+
