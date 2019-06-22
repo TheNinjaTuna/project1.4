@@ -1,4 +1,12 @@
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 public class Main {
+
+    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY =
+             Persistence.createEntityManagerFactory("JPAVoorbeeld");
+                private EntityManager manager;
 
     private static KantineSimulatie sim;
 
