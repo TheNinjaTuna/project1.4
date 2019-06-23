@@ -7,8 +7,9 @@ import java.util.*;
 public class KantineSimulatie {
 
     private static final EntityManagerFactory ENTITY_MANAGER_FACTORY =
-            Persistence.createEntityManagerFactory("kantinesimulaite");
-    private EntityManager manager;
+            Persistence.createEntityManagerFactory("KantineSimulatie");
+    private EntityManager manager = ENTITY_MANAGER_FACTORY.createEntityManager();
+
 
     // kantine
     private static Kantine kantine;
@@ -47,13 +48,12 @@ public class KantineSimulatie {
     private int[] aantalpersonen;
     private int[] aantalartikelen;
 
-    public int dag = 0;
 
     /**
      * Constructor
      */
     public KantineSimulatie() {
-        kantine = new Kantine();
+        kantine = new Kantine(manager);
         random = new Random();
         int[] hoeveelheden = getRandomArray(
                 AANTAL_ARTIKELEN,
@@ -127,7 +127,7 @@ public class KantineSimulatie {
      * @param dagen
      */
     public void simuleer(int dagen) {
-        runVoorbeeld();
+       // runVoorbeeld();
         // for lus voor dagen
         omzetA = new double[dagen];
         aantalartikelen = new int[dagen];
@@ -279,7 +279,7 @@ public class KantineSimulatie {
             // reset de kassa voor de volgende dag
 
             kantine.resetKassa();
-            dag = i;
+
 
         }
 

@@ -6,6 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
 import java.io.Serializable;
+import java.util.UUID;
+
+
 @Entity
 @Table(name = "factuur")
 
@@ -14,7 +17,7 @@ public class Factuur implements Serializable{
 
 @Id
 @Column(name = "id", unique = true)
-    private long id;
+    private java.lang.String id;
 
     @Column(name = "datum", nullable = false)
     private LocalDate datum;
@@ -25,6 +28,9 @@ public class Factuur implements Serializable{
     @Column(name = "totaal", nullable = false)
     private double totaal;
 
+    private static long idCounter = 0;
+    String uniqueID = UUID.randomUUID().toString();
+
 
     public Factuur(){
         totaal = 0;
@@ -34,6 +40,7 @@ public class Factuur implements Serializable{
     public Factuur(Dienblad klant, LocalDate datum){
         this();
         this.datum = datum;
+        this.id = uniqueID;
 
         verwerkBestelling(klant);
 

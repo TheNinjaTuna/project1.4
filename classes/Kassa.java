@@ -1,7 +1,8 @@
 import javax.persistence.EntityManager;
-import java.time.Clock;
 import java.time.LocalDate;
-import java.util.Iterator;
+import javax.persistence.EntityTransaction;
+
+
 
 public class Kassa {
 
@@ -38,13 +39,23 @@ public class Kassa {
 
         double korting = factuur.getKorting();
         double totaalprijs = factuur.getTotaal();
+        EntityTransaction transaction = null;
+        transaction = manager.getTransaction();
 
         try {betaalwijze.betaal(totaalprijs-korting);
             aantalverkocht += klant.getAantalArtikelen();
             totaleopbrengst += totaalprijs - korting;
+
+            transaction.begin();
+            manager.persist(factuur);
+            transaction.commit();
+
+
         }
 
-        catch (TeWeinigGeldException e){System.out.println("Een klant heeft de betaling gefaald...");}
+        catch (TeWeinigGeldException e){System.out.println("Een klant heeft de betaling gefaald... Rollback gedaan" ); transaction.rollback(); aantalverkocht-=klant.getAantalArtikelen(); totaalprijs -= totaalprijs-korting;}
+        //catch (Exception e){System.out.println("De betaling is zomaar gefaald... Rollback gedaan" ); transaction.rollback(); aantalverkocht-=klant.getAantalArtikelen(); totaalprijs -= totaalprijs-korting;}
+
 
 
     }
