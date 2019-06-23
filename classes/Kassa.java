@@ -1,3 +1,6 @@
+import javax.persistence.EntityManager;
+import java.time.Clock;
+import java.time.LocalDate;
 import java.util.Iterator;
 
 public class Kassa {
@@ -5,12 +8,16 @@ public class Kassa {
     private int aantalverkocht;
     private double totaleopbrengst;
 
+    private EntityManager manager;
+
     /**
      * Constructor
      */
-    public Kassa(KassaRij kassarij) {
+    public Kassa(KassaRij kassarij, EntityManager manage) {
         aantalverkocht = 0;
         totaleopbrengst = 0;
+
+        manager = manage;
     }
 
 
@@ -25,16 +32,21 @@ public class Kassa {
      */
     public void rekenAf(Dienblad klant) {
         Persoon bezoeker = klant.getKlant();
-        if (bezoeker.getBetaalwijze().betaal(klant.getTotalePrijs())) {
-        if (bezoeker instanceof Docent || bezoeker instanceof KantineMedewerker){aantalverkocht += klant.getAantalArtikelen();
-            if (((KortingskaartHouder) bezoeker).heeftMaximum() && (klant.getTotalePrijs() * 0.25) >= 1){totaleopbrengst += (klant.getTotalePrijs() - 1);}
-            else if(((KortingskaartHouder) bezoeker).heeftMaximum()){totaleopbrengst += (klant.getTotalePrijs() * 0.75); aantalverkocht += klant.getAantalArtikelen(); bezoeker.getBetaalwijze().betaal((klant.getTotalePrijs() * 0.75));}
-            else {totaleopbrengst += (klant.getTotalePrijs()*0.65); aantalverkocht += klant.getAantalArtikelen(); bezoeker.getBetaalwijze().betaal((klant.getTotalePrijs() * 0.65));}}
-        aantalverkocht += klant.getAantalArtikelen();
-        totaleopbrengst += klant.getTotalePrijs();
-        klant.getKlant().getBetaalwijze().betaal(klant.getTotalePrijs());
-    }
-        else{System.out.println("Een klant heeft de betaling niet kunnen voltooien.");}
+        Betaalwijze betaalwijze = bezoeker.getBetaalwijze();
+        LocalDate datum = LocalDate.now();
+        Factuur factuur = new Factuur(klant, datum);
+
+        double korting = factuur.getKorting();
+        double totaalprijs = factuur.getTotaal();
+
+        try {betaalwijze.betaal(totaalprijs-korting);
+            aantalverkocht += klant.getAantalArtikelen();
+            totaleopbrengst += totaalprijs - korting;
+        }
+
+        catch (TeWeinigGeldException e){System.out.println("Een klant heeft de betaling gefaald...");}
+
+
     }
 
     /**

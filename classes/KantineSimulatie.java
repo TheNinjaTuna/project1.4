@@ -47,6 +47,7 @@ public class KantineSimulatie {
     private int[] aantalpersonen;
     private int[] aantalartikelen;
 
+    public int dag = 0;
 
     /**
      * Constructor
@@ -278,6 +279,7 @@ public class KantineSimulatie {
             // reset de kassa voor de volgende dag
 
             kantine.resetKassa();
+            dag = i;
 
         }
 

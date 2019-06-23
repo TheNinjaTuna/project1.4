@@ -14,8 +14,8 @@ public class Pinpas extends Betaalwijze {
      * Methode om betaling af te handelen
      * @param tebetalen is het verschuldigt bedrag.
      */
-    public boolean betaal(double tebetalen) {
-        if (tebetalen <= kredietlimiet){ return true;} //kredietlimiet -= tebetalen;
-        return false;
+    public void betaal(double tebetalen) throws TeWeinigGeldException {
+        if (tebetalen > kredietlimiet)
+        throw new TeWeinigGeldException("Eem klant heeft niet genoeg geld");
     }
 }
