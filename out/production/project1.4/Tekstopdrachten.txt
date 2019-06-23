@@ -1,0 +1,135 @@
+Week 1 Opdracht 1 B
+
+Bij het declareren van een variabele maak je er als het ware ruimte voor. Hierbij krijgt de variabele nog geen invulling en heeft het geen waarde; "null".
+Bij het initialiseren krijgt de variabele een waarde toegewezen op de plek waar er ruimte voor is.
+
+Week 2 Opdracht 1 A
+
+Omdat een 'while' loop alleen maar hoeft te checken of de condition 'kassa.erIsEenRij' true is.
+Als deze dat niet is voert hij ook niks uit. (Behalve de eerste check om te kijken of de condition true is)
+
+Week 2 Opdracht 4 A
+
+Kantine heeft een aantal methodes die niks anders doet dan dezelfde methode in de kassa object aanroepen.
+Dit is dus een dubbelle methode
+
+Week 2 Opdracht 5 A
+
+Ten eerste is private is gewoon de standaard, daarnaast is het ook om te weten dat je deze code nergens anders buiten de class moet gebruiken. En ook omdat deze private zijn kun je deze ergens anders een method met dezelfde naam opnieuw gebruiken.
+// eventueel nog extra
+
+Week 2 Opdracht 5 B
+
+Ze staan beide verschillende dingen toe.
+Een HashSet slaat waarden op, en staat geen duplicates toe.
+Buiten de context van dit project zou je hier de dagen van een week in kunnen zetten.
+Deze slaat hij dan op, alleen niet op volgorde
+
+Een HashMap heeft een key die verbonden is aan een waarde. Ook deze heeft geen volgorde.
+Een HashMap kan geen duplicate keys hebben, maar wel duplicate waardes.
+Je kunt deze gebruiken om twee waarden te koppelen.
+
+Waar het op neer komt op het gebied van verschillen is dat de HashMap een key en een waarde opslaat, waarbij de waarde meerdere keren voor kan komen.
+Terwijl een HashSet een enkele waarde opslaat, die maar 1 keer voor mag komen.
+Een HashMap is dus eigenlijk Key+Value terwijl een HashSet alleen Key is.
+
+Week 2 Opdracht 6 A
+
+public KantineSimulatie() {
+41 kantine = new Kantine(); //hier wordt een nieuwe kantine object aangemaakt
+42 random = new Random(); // hier wordt een nieuw random object aangemaakt
+43 int[] hoeveelheden = getRandomArray( // hier wordt een integer array aangemaakt en word gevult met willekeurige waarden gevult. Ook zijn er grenzen gezet met waarmee het gevult kan worden.
+44 AANTAL_ARTIKELEN,
+45 MIN_ARTIKELEN_PER_SOORT,
+46 MAX_ARTIKELEN_PER_SOORT);
+47 kantineaanbod = new KantineAanbod( //Hier wordt een kantineaanbod object gemaakt en gevuld met de voor genitialiseerde waarden.
+48 artikelnamen, artikelprijzen, hoeveelheden);
+49
+50 kantine.setKantineAanbod(kantineaanbod) ;} //Hier word het kantineaanbod object van Kantine gekoppeld aan de net gemaakte kantineaanbod;
+
+Week 2 Opdracht 6
+random.nextInt pakt een nummer van 0 (inclusief) en een aangegeven getal (exclusief)
+Wat dit wil zeggen is dat het een random getal vanaf 0 tot het aangegeven getal is, dus niet tot en MET het aangegeven getal.
+De +1 zorgt ervoor dat wanneer je bijvoorbeeld het getal 50 aangeeft, hij normaal 49 zou pakken. Maar door de +1 pakt hij hier gewoon 50 (49+1).
+
+Week 3 Opdracht 2 C
+Als je geen constructor maakt dan genereert de compiller automatisch een lege constructor.
+
+
+Week 3 Opdracht 2 D
+Als we de twee methoden static maken dan kunnen ze worden aangeroepen vanuit een class context. Dat houd in dat je geen objectinstantie ervan nodig hebt om de functie te gebruiken.
+Aangezien de methode geen gebruik maakt van niet statische variabelen kan dit gewoon veilig gebruikt worden. Maar zo gauw er iets niet statisch aan gegeven wordt krijg je een compiler error.
+
+Week 3 Opdracht 2 E
+Nu de Adminstratie's constructor private is kan een instantie van het object niet meer gemaakt worden buiten de klasse zelf.
+
+Week 3 Opdracht 2 H
+Aangezien de methode statisch is verwacht hij elke keer te werken met dezelfde klasse variabellen en hij herkent final niet als een vaste klasse-variabel omdat het niet statisch gedifineerd is.
+
+Week 3 Opdracht 2 I
+Het probleem dat we nu geintroduceerd hebben is dat de variabele niet meer "vast staat" en dat hij per ongeluk veranderd zou kunnen worden, waardoor de werking van het progamma in gevaar komt.
+
+Week 3 Opdracht 3 B
+Ten eerste compiled het dan niet, maar ook
+
+Week4 Opdracht 1 c
+Protected betekent dat het alleen accesible is binnen dezelfde package, in tegenstelling tot public waar alles er bij kan.
+
+Week 4 Opdracht 3 a b c d e f g h
+
+Een interface is net als een abstract class, je geeft deze pas invulling in een andere class.
+De methodes hebben tevens ook geen bodies, dit zorgt er onder andere voor dat er geen instances kunnen worden gemaakt.
+Nee, java support geen meerdere overervingen.
+Ja,
+Ja,
+Ja, je kunt ze geen bodies geven.(java error)
+Nee, je kunt ze implementeren in niet abstracte classes.
+Het houd in dat je invulling geeft aan een bepaalde methode, bij dezelfde methode een andere body.
+Bij interface is er geen body om mee te beginnen, elke klasse die deze implementeerd moet voor elke interface methode een implementatie maken.
+
+
+Week 4 Opdracht a b c d e
+Ja, omdat abstract classes bedoelt zijn om overgeerft te worden, en uitsluitend abstracte methods zijn hier niet voor nodig.
+
+In tegenstelling tot een interface hoeft bij een class die een abstract class overerft niet alles te implementeren omdat
+de methodes in de abstracte classes al een body hebben
+
+Je kunt de class die de interface implementeerd abstract maken, op deze manier hebben de methods geen body nodig.
+
+Abstract is bedoelt om andere dingen te overerven, om die reden kun je het niet gebruiken om iets toe te voegen
+
+Een final method is altijd hetzelfde, en kan dus niet in een overervende class worden veranderd door een override.
+abstract geef je weg om te laten veranderen, terwijl final hetzelfde blijft.
+
+Week 5 opdracht 1 D
+Deze annotaties laten zien waar de waarden thuis horen in de database.
+Met @column bijvoorbeeld kun je de kolom "student_age" verwijzen door
+    @Column(name = "student_age", nullable = false)
+
+Week 5 opdracht 1E
+
+
+Week 5 Opdracht 2 A, B, C, D
+Omdat een Student meerdere telefoons kan hebben, Een student hoeft niet altijd 1 telefoon te hebben.
+
+B1 - geen idee
+B2 -
+
+C
+Een student kan meerdere studieinschrijvingen hebben. In de tabel zou je dus meerdere studieinschrijvingen
+onder de zelfde persoon kunnen zien.
+
+D
+In de tabel student
+Embeddable zou dan betekenen dat het ergens in te voegen is,
+en het gebruik van 'kaart' in de klasse Student laat zien dat deze Embedded is.
+
+opdracht 3
+A
+
+Bij het invoeren van alle gegevens van een dag, of meerdere dagen worden ingevoerd, als hier een fout voorkomt
+dan wordt alles weer teruggezet, en zit je niet met allerlei gegevens die wel goed zijn gelukt en niet gelukt zijn,
+
+
+
+
