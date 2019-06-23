@@ -1,4 +1,7 @@
 //2
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -276,6 +279,8 @@ public class KantineSimulatie {
             System.out.println(" ");
 
 
+
+
             // reset de kassa voor de volgende dag
 
             kantine.resetKassa();
@@ -283,6 +288,40 @@ public class KantineSimulatie {
 
         }
 
+        Session session = manager.unwrap(Session.class);
+        List<Double> nummer = session.createQuery("SELECT SUM(f.korting) FROM Factuur f").getResultList();
+        Double totalekorting = nummer.get(0);
+
+        List<Double> nummer2 = session.createQuery("SELECT SUM(f.totaal - f.korting) FROM Factuur f").getResultList();
+        Double totaleopbrengst = nummer2.get(0);
+
+        List<Double> nummer3 = session.createQuery("SELECT AVG(f.korting) FROM Factuur f").getResultList();
+        Double gemiddeldekorting = nummer3.get(0);
+
+        List<Double> nummer4 = session.createQuery("SELECT AVG(f.totaal - f.korting) FROM Factuur f").getResultList();
+        Double gemiddeldeomzet = nummer4.get(0);
+
+        List<Double> nummer5 = session.createQuery("SELECT f.totaal FROM Factuur f ORDER BY f.totaal DESC").setMaxResults(3).getResultList();
+        Double top1 = nummer5.get(0);
+        Double top2 = nummer5.get(1);
+        Double top3 = nummer5.get(2);
+
+
+
+        System.out.println("SIMULATIE OVER:");
+        System.out.println("Totale korting toegepast: €" + totalekorting);
+        System.out.println("Totale opbrengst: €" + totaleopbrengst);
+        System.out.println(" ");
+        System.out.println("Gemiddelde korting: €" + gemiddeldekorting);
+        System.out.println("Gemiddelde omzet: €" + gemiddeldeomzet);
+        System.out.println(" ");
+        System.out.println("TOP 3 Hoogste facturen: ");
+        System.out.println("1: €" + top1);
+        System.out.println("2: €" + top2);
+        System.out.println("3: €" + top3);
+
+
+        ENTITY_MANAGER_FACTORY.close();
     }
 }
 

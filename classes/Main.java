@@ -17,7 +17,7 @@ public class Main {
        // Administratie.testor2();
         // Administratie.testor3();
         sim = new KantineSimulatie();
-        sim.simuleer(365);
+        sim.simuleer(10);
 
     }
 }
