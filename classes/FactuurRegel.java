@@ -17,6 +17,7 @@ public class FactuurRegel implements Serializable {
     @Embedded
     private Artikel artikel;
 
+
     public FactuurRegel() {
     }
 

@@ -27,6 +27,7 @@ public class Factuur implements Serializable{
     @Column(name = "totaal", nullable = false)
     private double totaal;
 
+    @Column
     private ArrayList<FactuurRegel> regels;
 
     String uniqueID = UUID.randomUUID().toString();
