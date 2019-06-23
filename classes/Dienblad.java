@@ -68,5 +68,9 @@ public class Dienblad {
     public void setKlant(Persoon klant) {
         this.klant = klant;
     }
+
+    public Stack<Artikel> getArtikelen() {
+        return artikelen;
+    }
 }
 

@@ -1,11 +1,10 @@
 import net.bytebuddy.asm.Advice;
+import org.hibernate.annotations.Generated;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.UUID;
 
 
@@ -15,9 +14,9 @@ import java.util.UUID;
 public class Factuur implements Serializable{
 
 
-@Id
+@Id @GeneratedValue
 @Column(name = "id", unique = true)
-    private java.lang.String id;
+    private long id;
 
     @Column(name = "datum", nullable = false)
     private LocalDate datum;
@@ -28,7 +27,8 @@ public class Factuur implements Serializable{
     @Column(name = "totaal", nullable = false)
     private double totaal;
 
-    private static long idCounter = 0;
+    private ArrayList<FactuurRegel> regels;
+
     String uniqueID = UUID.randomUUID().toString();
 
 
@@ -40,7 +40,6 @@ public class Factuur implements Serializable{
     public Factuur(Dienblad klant, LocalDate datum){
         this();
         this.datum = datum;
-        this.id = uniqueID;
 
         verwerkBestelling(klant);
 
@@ -59,6 +58,10 @@ public class Factuur implements Serializable{
         totaal = totaalprijs;
         korting = kortingberekend;
 
+        for (Artikel a : klant.getArtikelen()) {FactuurRegel regel = new FactuurRegel(this, a );};
+
+
+
 
     }
 
@@ -72,12 +75,14 @@ public class Factuur implements Serializable{
 
     @Override
     public String toString() {
-        return "FACTUUR: " +
-                //"id=" + id +
-                "Datum:" + datum +
-                ", Totaalprijs: " + totaal +
-                ", Ontvangen korting: " + korting +
-                ", Totaal te betalen: " + (totaal-korting) +
-                '}';
+     String bon = "FACTUUR:";
+     System.out.println("Totaalprijs: " + getTotaal());
+        System.out.println("Toegepaste korting: " + getKorting());
+        System.out.println("Totaal te betalen: " + (totaal-korting));
+        System.out.println(" ");
+        System.out.println("Gekochte artikelen: ");
+        for (FactuurRegel r : regels) {System.out.println("- " + r.getArtikel().getNaam());}
+
+     return bon;
     }
 }
